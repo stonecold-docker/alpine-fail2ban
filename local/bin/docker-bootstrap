@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+if [ -e /.init ]; then
+	exit
+fi
+
+touch /.init
+
+mkdir -p /conf.d /conf.d/fail2ban
+
+if [ ! -e /conf.d/fail2ban/fail2ban.conf ]; then
+	cp -ar /etc/fail2ban/* /conf.d/fail2ban/
+	rm -rf /conf.d/fail2ban/jail.d/alpine-ssh.conf
+	sed -i -e 's/^dbfile = .*$/dbfile = \/conf.d\/fail2ban\/fail2ban.sqlite3/g' /conf.d/fail2ban/fail2ban.conf
+	sed -i -e 's/^logtarget = .*$/logtarget = STDOUT/g' /conf.d/fail2ban/fail2ban.conf
+fi
+
