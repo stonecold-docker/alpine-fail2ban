@@ -1,8 +1,12 @@
 ARG BUILD_ARCH=armhf
 
-FROM forumi0721/alpine-armhf-base:latest
+FROM forumi0721alpinearmhfbuild/alpine-armhf-fail2ban-builder:latest as builder
+
+FROM forumi0721/alpine-${BUILD_ARCH}-base:latest
 
 LABEL maintainer="forumi0721@gmail.com"
+
+COPY --from=builder /output /app
 
 COPY local/. /usr/local/
 
@@ -13,4 +17,6 @@ RUN ["docker-init"]
 RUN ["docker-build-end"]
 
 ENTRYPOINT ["docker-run"]
+
+VOLUME /conf.d
 

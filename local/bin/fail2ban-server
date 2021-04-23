@@ -1,0 +1,5 @@
+#!/bin/sh
+
+source /app/fail2ban/bin/activate
+
+exec fail2ban-server -c /conf.d/fail2ban -f

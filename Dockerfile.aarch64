@@ -1,8 +1,12 @@
 ARG BUILD_ARCH=aarch64
 
-FROM forumi0721/alpine-aarch64-base:latest
+FROM forumi0721alpineaarch64build/alpine-aarch64-fail2ban-builder:latest as builder
+
+FROM forumi0721/alpine-${BUILD_ARCH}-base:latest
 
 LABEL maintainer="forumi0721@gmail.com"
+
+COPY --from=builder /output /app
 
 COPY local/. /usr/local/
 
@@ -13,4 +17,6 @@ RUN ["docker-init"]
 RUN ["docker-build-end"]
 
 ENTRYPOINT ["docker-run"]
+
+VOLUME /conf.d
 

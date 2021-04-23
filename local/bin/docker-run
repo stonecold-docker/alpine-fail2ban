@@ -13,6 +13,6 @@ set -e
 if [ -x /usr/local/bin/docker-run-alt ]; then
 	exec /usr/local/bin/docker-run-alt "${@}"
 else
-	exec fail2ban-server -c /conf.d/fail2ban -f
+	exec /usr/local/bin/fail2ban-server
 fi
 
