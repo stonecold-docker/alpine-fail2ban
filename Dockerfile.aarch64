@@ -16,7 +16,7 @@ RUN ["docker-build-end"]
 
 ARG BASE_IMAGE=forumi0721/alpine-base
 
-FROM ${BASE_IMAGE}:latest
+FROM ${BASE_IMAGE}:aarch64
 
 LABEL maintainer="forumi0721@gmail.com"
 
