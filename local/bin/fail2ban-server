@@ -1,5 +1,8 @@
 #!/bin/sh
 
+rm -rf /var/run/fail2ban
+
 source /app/fail2ban/bin/activate
 
 exec fail2ban-server -c /conf.d/fail2ban -f
+
