@@ -5,7 +5,7 @@ set -e
 echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> Installing pip,virtualenv"
 mkdir -p /app
 cd /app
-python3 -m venv -p /usr/bin/python3 fail2ban
+python3 -m venv fail2ban
 cd /app/fail2ban
 . bin/activate
 cd /
