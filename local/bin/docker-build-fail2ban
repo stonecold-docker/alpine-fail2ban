@@ -17,7 +17,6 @@ mkdir -p /build/fail2ban
 cd /build/fail2ban
 wget --no-check-certificate -q -O - https://github.com/fail2ban/fail2ban/archive/refs/heads/master.tar.gz | tar zxf -
 cd fail2ban-master
-bash fail2ban-2to3
 python3 setup.py install
 cd /
 rm -rf /build
