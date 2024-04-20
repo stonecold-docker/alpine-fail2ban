@@ -8,6 +8,7 @@ cd /app
 python3 -m venv fail2ban
 cd /app/fail2ban
 . bin/activate
+pip install setuptools
 cd /
 echo "[$(TZ="GMT-9" date '+%Y-%m-%d %H:%M:%S')] ==> OK"
 echo
