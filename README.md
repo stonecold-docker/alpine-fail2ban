@@ -5,10 +5,10 @@
 
 
 ----------------------------------------
-### x64
-![Docker Image Size](https://img.shields.io/docker/image-size/forumi0721/alpine-fail2ban/x64)
-### aarch64
-![Docker Image Size](https://img.shields.io/docker/image-size/forumi0721/alpine-fail2ban/aarch64)
+### amd64
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/forumi0721/alpine-fail2ban/latest?arch=amd64)
+### arm64
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/forumi0721/alpine-fail2ban/latest?arch=arm64)
 
 
 
@@ -16,8 +16,8 @@
 #### Description
 
 * Distribution : [Alpine Linux](https://alpinelinux.org/)
-* Architecture : x64,aarch64
-* Appplication : fail2ban
+* Architecture : amd64, arm64
+* Application : fail2ban
     - Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks.
 
 
@@ -30,7 +30,7 @@ docker run -d \
            --privileged \
 		   --net=host \
            -v /conf.d:/conf.d \
-           forumi0721/alpine-fail2ban:[ARCH_TAG]
+           forumi0721/alpine-fail2ban:latest
 ```
 
 
